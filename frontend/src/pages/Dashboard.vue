@@ -12,7 +12,7 @@
             <v-toolbar-title>Welcome</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-btn color="primary" @click="openCreateUserDialog"
-              >Crear Usuario</v-btn
+              >Create User</v-btn
             >
           </v-toolbar>
         </template>
