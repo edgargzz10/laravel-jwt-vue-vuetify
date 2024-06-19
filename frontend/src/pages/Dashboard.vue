@@ -48,7 +48,7 @@
       </v-data-table>
     </v-container>
 
-    <!-- Diálogo para crear usuario -->
+    <!-- Create User -->
     <v-dialog v-model="createUserDialog">
       <v-card>
         <v-card-title>Create User</v-card-title>
@@ -82,7 +82,7 @@
       </v-card>
     </v-dialog>
 
-    <!-- Diálogo para editar usuario -->
+    <!-- Edit User -->
     <v-dialog v-model="editDialog">
       <v-card>
         <v-card-title>Edit User</v-card-title>
@@ -105,7 +105,7 @@
       </v-card>
     </v-dialog>
 
-    <!-- Diálogo para cambiar contraseña -->
+    <!-- Change Password -->
     <v-dialog v-model="passwordDialog">
       <v-card>
         <v-card-title>Change Password</v-card-title>
@@ -190,7 +190,7 @@ export default {
         const loggedInUserIdNum = parseInt(loggedInUserId, 10);
 
         if (id === loggedInUserIdNum) {
-          this.showAlertMessage("error", "No puedes eliminarte a ti mismo.");
+          this.showAlertMessage("error", "You can eleminate your user.");
           return;
         }
 
@@ -201,9 +201,9 @@ export default {
         });
 
         await this.fetchUsers();
-        this.showAlertMessage("success", "Usuario eliminado correctamente.");
+        this.showAlertMessage("success", "User deletes.");
       } catch (error) {
-        this.showAlertMessage("error", "Error al eliminar usuario.");
+        this.showAlertMessage("error", "User deleted error.");
         console.error(error);
       }
     },
@@ -263,12 +263,12 @@ export default {
 
         this.passwordDialog = false;
         this.passwordErrors = [];
-        this.showAlertMessage("success", "Contraseña cambiada correctamente.");
+        this.showAlertMessage("success", "Password changed succesfully.");
       } catch (error) {
         if (error.response && error.response.status === 422) {
           this.passwordErrors = error.response.data.errors.new_password || [];
         } else {
-          this.showAlertMessage("error", "Error al cambiar la contraseña.");
+          this.showAlertMessage("error", "Change password error");
           console.error(error);
         }
       }
@@ -283,12 +283,12 @@ export default {
         });
         this.createUserDialog = false;
         await this.fetchUsers();
-        this.showAlertMessage("success", "Usuario creado correctamente.");
+        this.showAlertMessage("success", "User created.");
       } catch (error) {
         if (error.response && error.response.status === 422) {
           this.formErrors = error.response.data.errors || {};
         } else {
-          this.showAlertMessage("error", "Error al crear usuario.");
+          this.showAlertMessage("error", "User error.");
           console.error(error);
         }
       }
@@ -317,7 +317,7 @@ export default {
 
       setTimeout(() => {
         this.showAlert = false;
-      }, 3000); // El alert desaparecerá después de 3 segundos
+      }, 3000);
     },
     logout() {
       localStorage.removeItem("token");

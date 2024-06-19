@@ -1,6 +1,6 @@
 <template>
   <v-app-bar app color="primary">
-    <v-toolbar-title>My App</v-toolbar-title>
+    <v-toolbar-title>EGOA</v-toolbar-title>
     <v-spacer></v-spacer>
     <v-btn text to="/">Home</v-btn>
     <v-btn v-if="isLoggedIn" text to="/dashboard">Dashboard</v-btn>

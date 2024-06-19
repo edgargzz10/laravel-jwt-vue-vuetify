@@ -71,7 +71,7 @@ export default {
             this.passwordErrors = errors.password;
           }
         } else if (error.response.status === 401) {
-          this.loginError = "Email y/o contraseña incorrectos.";
+          this.loginError = "Email and password dont match.";
         } else {
           console.error(error);
         }

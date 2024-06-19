@@ -5,7 +5,7 @@ import DashboardPage from "@/pages/Dashboard.vue";
 
 const routes = [
   { path: "/", component: HomePage },
-  { path: "/login", component: LoginPage, meta: { requiresGuest: true } }, // Agregar meta requiresGuest
+  { path: "/login", component: LoginPage, meta: { requiresGuest: true } },
   {
     path: "/dashboard",
     component: DashboardPage,
@@ -22,14 +22,14 @@ router.beforeEach((to, from, next) => {
   const loggedIn = localStorage.getItem("token");
 
   if (to.matched.some((record) => record.meta.requiresAuth) && !loggedIn) {
-    next("/login"); // Redirigir a la página de login si intenta acceder a una ruta protegida sin autenticación
+    next("/login");
   } else if (
     to.matched.some((record) => record.meta.requiresGuest) &&
     loggedIn
   ) {
-    next("/dashboard"); // Redirigir al dashboard si intenta acceder a las rutas de login o register estando autenticado
+    next("/dashboard");
   } else {
-    next(); // Permite la navegación hacia la ruta solicitada
+    next();
   }
 });
 

@@ -35,7 +35,6 @@ class UserControllerTest extends TestCase
                     'id',
                     'name',
                     'email',
-                    // Other user fields you want to verify
                 ],
             ],
         ]);
@@ -77,7 +76,6 @@ class UserControllerTest extends TestCase
                 'id',
                 'name',
                 'email',
-                // Other user fields you want to verify
             ],
         ]);
 
@@ -319,12 +317,11 @@ class UserControllerTest extends TestCase
                 'name',
                 'last_name',
                 'email',
-                // Other user fields you want to verify
             ],
         ]);
 
         // Verify that the status in the JSON response is 'success' and the message is 'user deleted successfully'
-        $response->assertJson(['status' => 'success', 'message' => 'user deleted successfully']);
+        $response->assertJson(['status' => 'success', 'message' => 'User deleted successfully']);
 
         // Verify that the user has been deleted from the database
         $this->assertDatabaseMissing('users', ['id' => $userToDelete->id]);
